@@ -1,3 +1,11 @@
 # DotFiles
 
-The first version of this repository only has some files, when i have the time i will add the others, some screenshots and dependancies.
+Hi this is my dotfiles repository, i hope you like it!
+
+This is the result:
+
+
+
+![dotfiles.png](/home/adri/DotFiles/dotfiles.png)
+
+Please pay attention, **some files do not work properly**. If you have solutions for the issues please report.
