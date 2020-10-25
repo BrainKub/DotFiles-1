@@ -2,7 +2,7 @@
 
 Hi this is my dotfiles repository, i hope you like it!
 
-WM: [i3](https://i3wm.org/)
+WM: [i3](https://i3wm.org/)/[i3-gaps-rounded](https://aur.archlinux.org/packages/i3-gaps-rounded-git/)
 
 Terminal: [Alacritty](https://wiki.archlinux.org/index.php/Alacritty)
 
