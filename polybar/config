@@ -87,7 +87,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python /home/adri/.config/polybar/spotify_status.py -f '{artist}: {song}'
+exec = python /~/.config/polybar/spotify_status.py -f '{artist}: {song}'
 format-underline = #1db954
 
 [module/xwindow]

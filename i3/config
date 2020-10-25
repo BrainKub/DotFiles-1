@@ -18,10 +18,10 @@ exec_always xinput set-prop 13 301 -0.8
 exec_always xinput set-prop 13 304 0 1
 # Some daemons, startup programs and the compositor
 exec --no-startup-id nm-applet
-set $wallpaper ~/Immagini/cyberpunk.png
+set $wallpaper ~/Pictures/cyberpunk.png
 exec_always feh --bg-fill $wallpaper #exec_always wal -a 90 -i $wallpaper
 exec_always picom -f
-exec_always xrandr --output DisplayPort-1 --brightness 1.1
+exec_always xrandr --output DisplayPort-1 --brightness 1
 exec_always xset s off
 exec_always xset -dpms
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -159,10 +159,3 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 # Extra things
 for_window [class="spotify"] exec blockify
 bindsym $mod+n exec thunar
-
-# Disco Dati -- Personal second disk, you don't need it
-exec_always sudo mkdir /media/adri
-exec_always sudo chown -R adri:adri /media/adri/
-exec_always mkdir /media/adri/Disco\ Dati
-exec_always sudo mount /dev/sdb1 /media/adri/Disco\ Dati
-exec_always sudo chown -R adri:adri /media/adri/
