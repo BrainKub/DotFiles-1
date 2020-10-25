@@ -21,6 +21,7 @@ exec --no-startup-id nm-applet
 set $wallpaper ~/Immagini/cyberpunk.png
 exec_always feh --bg-fill $wallpaper #exec_always wal -a 90 -i $wallpaper
 exec_always picom -f
+exec_always xrandr --output DisplayPort-1 --brightness 1.1
 exec_always xset s off
 exec_always xset -dpms
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
