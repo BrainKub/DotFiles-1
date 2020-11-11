@@ -1,21 +1,3 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
-
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #991e1e1e
@@ -33,7 +15,7 @@ width = 100%
 height = 23.5
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 7.0
+radius = 10.0
 fixed-center = false
 
 background = ${colors.background}
@@ -60,7 +42,7 @@ font-5 = Font Awesome 5 Free Brands:pixelsize=12;2
 
 modules-left = i3
 modules-center = xwindow updates
-modules-right = spotify filesystem pulseaudio memory cpu date powermenu
+modules-right = spotify wlan pulseaudio filesystem memory cpu date powermenu
 
 separator = |
 
@@ -87,7 +69,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python /~/.config/polybar/spotify_status.py -f '{artist}: {song}'
+exec = python /home/adri/.config/polybar/spotify_status.py -f '{artist}: {song}'
 format-underline = #1db954
 
 [module/xwindow]
@@ -146,7 +128,7 @@ label-empty-padding = 2
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+wrapping-scroll = true
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
