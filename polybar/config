@@ -1,27 +1,52 @@
 [colors]
-;background = ${xrdb:color0:#222}
-background = #991e1e1e
+;background = #991e1e1e
+background = #2E3440
 background-alt = #99444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+;foreground = #dfdfdf
+foreground = #ECEFF4
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+polar-night1 = #2E3440
+polar-night2 = #3B4252
+polar-night3 = #434C5E
+polar-night4 = #4C566A
+
+snow-storm1 = #D8DEE9
+snow-storm2 = #E5E9F0
+snow-storm3 = #ECEFF4
+
+frost1 = #8FBCBB
+frost2 = #88C0D0
+frost3 = #81A1C1
+frost4 = #5E81AC
+
+aurora_red = #BF616A
+aurora_amber = #D08770
+aurora_yellow = #EBCB8B
+aurora_green = #A3BE8C
+aurora_pink = #B48EAD
+
+audio-section = ${colors.aurora_pink}
+conn-section = ${colors.frost3}
+hw-section = ${colors.aurora_green}
+cal-section = ${colors.frost1}
+internet-section =${colors.snow-storm1}
+spotify-section = ${colors.polar-night4}
+
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 23.5
-;offset-x = 1%
-;offset-y = 1%
-radius = 10.0
-fixed-center = false
+radius = 10
+dim-value = 1
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 1
 line-color = #f00
 
 border-size = 5
@@ -30,8 +55,8 @@ border-color = #00000000
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 0
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -41,13 +66,14 @@ font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Free Brands:pixelsize=12;2
 
 modules-left = i3
-modules-center = xwindow updates
-modules-right = spotify wlan pulseaudio filesystem memory cpu date powermenu
+modules-center = date ;xwindow
+modules-right = spotify filesystem memory cpu left-internet wifi-download wifi-upload right-internet pulseaudio
 
-separator = |
+separator = "  "
 
 tray-position = none
 tray-padding = 2
+tray-detached = false
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -64,13 +90,47 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[module/wifi-upload]
+type = internal/network
+interface = wlp41s0f3u2
+interval = 3.0
+unknown-as-up = true
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+format-connected-prefix = "  "   
+label-connected =  %upspeed%
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected-foreground = ${colors.foreground}
+
+[module/wifi-download]
+type = internal/network
+interface = wlp41s0f3u2
+interval = 3.0
+unknown-as-up = true
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected =    %downspeed%
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected-foreground = ${colors.foreground}
+
+[module/wifi-ssid-strength]
+type = internal/network
+interface = wlp41s0f3u2
+interval = 1.0
+format-connected = <label-connected>
+format-connected-prefix = "WiFi "
+label-connected = 
+format-connected-prefix-foreground = ${colors.foreground}
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.background-alt}
+
 [module/spotify]
 type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
 exec = python /home/adri/.config/polybar/spotify_status.py -f '{artist}: {song}'
-format-underline = #1db954
 
 [module/xwindow]
 type = internal/xwindow
@@ -213,7 +273,6 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
 label = %percentage:2%%
 
 [module/memory]
@@ -221,7 +280,6 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/wlan]
@@ -229,10 +287,9 @@ type = internal/network
 interface = wlp41s0f3u2
 interval = 3.0
 
-format-prefix = " "
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+format-prefix = ""
+format-connected = <label-connected>
+label-connected = ""
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -270,16 +327,15 @@ interval = 1
 date = " %d/%m"
 time = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 label = %time% %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
