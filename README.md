@@ -45,10 +45,11 @@ git clone https://github.com/TheDarkBug/DotFiles.git && cd DotFiles
 cp -rt ~/.config alacritty/ dunst/ i3/ picom/ polybar/ rofi/ scripts/
 ```
 
-Now copy .zshrc and in the home directory
+Now copy .zshrc and in the home directory and pwbgld.png in ~/Pictures/
 
 ```shell
 cp .zshrc ~/
+cp pwbgld.png ~/Pictures/
 ```
 
 To configure PowerLevel10k, run ```p10k configure``` in terminal and follow the instructions.
