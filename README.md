@@ -53,5 +53,6 @@ cp pwbgld.png ~/Pictures/
 ```
 
 To configure PowerLevel10k, run ```p10k configure``` in terminal and follow the instructions.
+Finally you should change some lines in the config files, you need to swap my username (adri) with yours.
 
 Nothing else, if all works you can delete the DotFiles forlder, if you liked it please leave a star.
